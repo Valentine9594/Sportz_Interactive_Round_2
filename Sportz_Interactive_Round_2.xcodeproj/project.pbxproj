@@ -18,6 +18,7 @@
 		92EA957F29781916005237E7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA957E29781916005237E7 /* APIManager.swift */; };
 		92EA958129781B60005237E7 /* APIUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA958029781B60005237E7 /* APIUtilities.swift */; };
 		92EA958429782298005237E7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA958329782298005237E7 /* NetworkError.swift */; };
+		92EA95862978241A005237E7 /* Screen1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA95852978241A005237E7 /* Screen1ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		92EA957E29781916005237E7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		92EA958029781B60005237E7 /* APIUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtilities.swift; sourceTree = "<group>"; };
 		92EA958329782298005237E7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		92EA95852978241A005237E7 /* Screen1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen1ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				92EA95752978176C005237E7 /* Screen1ViewController.swift */,
 				92EA95762978176C005237E7 /* Screen1ViewController.xib */,
+				92EA95852978241A005237E7 /* Screen1ViewModel.swift */,
 			);
 			path = Screen1ViewController;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92EA957F29781916005237E7 /* APIManager.swift in Sources */,
+				92EA95862978241A005237E7 /* Screen1ViewModel.swift in Sources */,
 				92EA958429782298005237E7 /* NetworkError.swift in Sources */,
 				92EA956529781553005237E7 /* ViewController.swift in Sources */,
 				92EA958129781B60005237E7 /* APIUtilities.swift in Sources */,
