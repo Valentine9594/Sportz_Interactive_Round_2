@@ -24,6 +24,7 @@ class ScreenOneViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         setupTableView()
     }
 
@@ -32,6 +33,10 @@ class ScreenOneViewController: UIViewController {
         super.viewWillAppear(animated)
         setupObservers()
         fetchAllMatchDetails()
+    }
+    
+    private func setupUI() {
+        navigationController?.title = "Fixtures"
     }
 
     private func fetchAllMatchDetails() {
@@ -68,7 +73,7 @@ extension ScreenOneViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FixturesTableViewCell") as! FixturesTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FixturesTableViewCell") as? FixturesTableViewCell else { return UITableViewCell() }
         let currentFixture = viewModel?.fetchMatchDetailAt(index: indexPath.row)
         cell.setupFixtureTableViewCell(matchDetailResponse: currentFixture)
         return cell
@@ -76,6 +81,8 @@ extension ScreenOneViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let currentFixture = viewModel?.fetchMatchDetailAt(index: indexPath.row)
-        print(currentFixture?.teams ?? "")
+        let matchDetailViewModel = MatchDetailViewModel(model: currentFixture)
+        let matchDetailViewController = MatchDetailViewController(viewModel: matchDetailViewModel)
+        navigationController?.pushViewController(matchDetailViewController, animated: true)
     }
 }

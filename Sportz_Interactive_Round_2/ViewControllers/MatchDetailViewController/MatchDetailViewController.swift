@@ -9,10 +9,13 @@ import UIKit
 
 class MatchDetailViewController: UIViewController {
     
+    @IBOutlet weak var teamsTableView: UITableView!
     private var viewModel: MatchDetailViewModelDelegate?
+    private var displayPlayers: DisplayPlayers = .allPlayers
 
     init(viewModel: MatchDetailViewModelDelegate?) {
         super.init(nibName: "MatchDetailViewController", bundle: nil)
+        self.viewModel = viewModel
     }
     
     required init?(coder: NSCoder) {
@@ -21,10 +24,43 @@ class MatchDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
+        setupTableView()
     }
 
+    private func setupUI() {
+        
+    }
+    
+    private func setupTableView() {
+        teamsTableView.delegate = self
+        teamsTableView.dataSource = self
+        
+        teamsTableView.rowHeight = UITableView.automaticDimension
+        teamsTableView.allowsMultipleSelection = false
+        
+        let matchDetailsTableviewCellNib = UINib(nibName: "MatchDetailsTableViewCell", bundle: nil)
+        teamsTableView.register(matchDetailsTableviewCellNib, forCellReuseIdentifier: "MatchDetailsTableViewCell")
+    }
 
+}
 
+extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return displayPlayers.sectionCount
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let team: DisplayPlayers = section == 0 ? .teamHome : .teamAway
+        return viewModel?.numberOfRowsInSection(for: team) ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MatchDetailsTableViewCell", for: indexPath) as? MatchDetailsTableViewCell else { return UITableViewCell() }
+        let player = viewModel?.fetchPlayer(indexPath: indexPath)
+        cell.configureData(player: player)
+        return cell
+    }
+    
+    
 }
