@@ -43,7 +43,7 @@ final class APIManager {
             }
             
             if let response = response as? HTTPURLResponse {
-                print(response.statusCode)
+                print("Status Code: \(response.statusCode)")
             }
             
             if let error = error {
