@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ScreenOneViewModelDelegate {
+protocol ScreenOneViewModelDelegate: AnyObject {
     var tableViewShouldReload: Reactive<Bool> { get }
     
     func fetchMatchData()

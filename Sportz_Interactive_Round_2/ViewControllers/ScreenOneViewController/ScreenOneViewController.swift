@@ -19,8 +19,7 @@ class ScreenOneViewController: UIViewController {
     }
     
     required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-        super.init(nibName: "ScreenOneViewController", bundle: nil)
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -40,7 +39,7 @@ class ScreenOneViewController: UIViewController {
     }
     
     private func setupObservers() {
-        viewModel?.tableViewShouldReload.bindAndFire(listener: { shouldReload in
+        viewModel?.tableViewShouldReload.bindAndFire(listener: { [unowned self] shouldReload in
             if shouldReload {
                 DispatchQueue.main.async {
                     self.fixturesTableview.reloadData()
