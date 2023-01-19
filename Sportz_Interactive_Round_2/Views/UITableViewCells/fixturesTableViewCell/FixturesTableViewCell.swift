@@ -17,11 +17,19 @@ class FixturesTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    private func setupUI() {
+        matchTeamAwayLabel.numberOfLines = 0
+        matchTeamAwayLabel.lineBreakMode = .byWordWrapping
+
+        matchTeamHomeLabel.numberOfLines = 0
+        matchTeamHomeLabel.lineBreakMode = .byWordWrapping
     }
     
     func setupFixtureTableViewCell(matchDetailResponse: MatchDetailResponse?) {
