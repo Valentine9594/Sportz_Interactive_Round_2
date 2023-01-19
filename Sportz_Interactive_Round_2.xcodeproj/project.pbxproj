@@ -69,6 +69,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92003AD229797E0B008572B5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				92D5A48F29793FED007EBD0D /* MatchDetailViewModel.swift */,
+				92EA95852978241A005237E7 /* ScreenOneViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		92D5A4772978F4D3007EBD0D /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +126,6 @@
 			children = (
 				92D5A48B29793F12007EBD0D /* MatchDetailViewController.swift */,
 				92D5A48C29793F12007EBD0D /* MatchDetailViewController.xib */,
-				92D5A48F29793FED007EBD0D /* MatchDetailViewModel.swift */,
 			);
 			path = MatchDetailViewController;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 		92EA955F29781553005237E7 /* Sportz_Interactive_Round_2 */ = {
 			isa = PBXGroup;
 			children = (
+				92003AD229797E0B008572B5 /* ViewModels */,
 				92D5A48929793E60007EBD0D /* ViewControllers */,
 				92D5A48029790B04007EBD0D /* Views */,
 				92EA957B297818F1005237E7 /* Extensions */,
@@ -169,7 +178,6 @@
 			children = (
 				92003AD029796C07008572B5 /* ScreenOneViewController.xib */,
 				92EA95752978176C005237E7 /* ScreenOneViewController.swift */,
-				92EA95852978241A005237E7 /* ScreenOneViewModel.swift */,
 			);
 			path = ScreenOneViewController;
 			sourceTree = "<group>";

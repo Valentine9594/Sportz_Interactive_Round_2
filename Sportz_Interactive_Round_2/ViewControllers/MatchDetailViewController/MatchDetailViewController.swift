@@ -30,7 +30,9 @@ class MatchDetailViewController: UIViewController {
     }
 
     private func setupUI() {
-        
+        filterButton.layer.cornerRadius = filterButton.frame.size.width / 2
+        filterButton.layer.borderColor = UIColor.black.cgColor
+        filterButton.layer.borderWidth = 1
     }
     
     private func setupTableView() {
@@ -50,19 +52,19 @@ class MatchDetailViewController: UIViewController {
             self.viewModel?.displayPlayers = .allPlayers
             self.teamsTableView.reloadData()
         }
-        let teamHomeAction = UIAlertAction(title: "Team One", style: .default) { action in
+        let teamHomeAction = UIAlertAction(title: viewModel?.getTeamHomeName, style: .default) { action in
             self.viewModel?.displayPlayers = .teamHome
             self.teamsTableView.reloadData()
         }
-        let teamAwayAction = UIAlertAction(title: "Team Two", style: .default) { action in
+        let teamAwayAction = UIAlertAction(title: viewModel?.getTeamAwayName, style: .default) { action in
             self.viewModel?.displayPlayers = .teamAway
             self.teamsTableView.reloadData()
         }
-        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(allPlayersAction)
         alertController.addAction(teamHomeAction)
         alertController.addAction(teamAwayAction)
-        
+        alertController.addAction(cancelAction)
         self.present(alertController, animated: true)
     }
 
@@ -84,5 +86,21 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return viewModel?.getHeaderTitle(section: section)
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let player = viewModel?.fetchPlayer(indexPath: indexPath)
+        getPlayerMatchStylesAlert(player: player)
+    }
+    
+    private func getPlayerMatchStylesAlert(player: Player?) {
+        var message = "Battle Style: \(player?.batting?.style?.rawValue ?? "N/A")\n"
+        message += "Bowling Style: \(player?.bowling?.style ?? "N/A")"
+        let alertController = UIAlertController(title: "\(player?.nameFull ?? "")", message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okayAction)
+        self.present(alertController, animated: true)
+    }
 }

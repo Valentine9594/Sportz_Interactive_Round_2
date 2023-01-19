@@ -10,9 +10,11 @@ import Foundation
 protocol MatchDetailViewModelDelegate {
     var tableShouldReload: Reactive<Bool> { get }
     var displayPlayers: DisplayPlayers { get set }
+    var getTeamHomeName: String? { get }
+    var getTeamAwayName: String? { get }
     
     func numberOfRowsInSection(section: Int) -> Int?
-    
+    func getHeaderTitle(section: Int) -> String?
     func fetchPlayer(indexPath: IndexPath) -> Player?
 }
 
@@ -34,16 +36,25 @@ enum DisplayPlayers: CaseIterable {
 class MatchDetailViewModel: MatchDetailViewModelDelegate {
     
     private var model: MatchDetailResponse?
+    
     private var teamHomeID: String = ""
     private var teamAwayID: String = ""
-    var displayPlayers: DisplayPlayers = .allPlayers
     
+    var displayPlayers: DisplayPlayers = .allPlayers
     private var teamHomePlayers: [Player]? {
         return model?.teams?[self.teamHomeID]?.players?.values.map({ return $0 })
     }
     
     private var teamAwayPlayers: [Player]? {
         return model?.teams?[self.teamAwayID]?.players?.values.map({ return $0 })
+    }
+    
+    var getTeamHomeName: String? {
+        return model?.teams?[self.teamHomeID]?.nameFull
+    }
+    
+    var getTeamAwayName: String? {
+        return model?.teams?[self.teamAwayID]?.nameFull
     }
     
     var tableShouldReload: Reactive<Bool> = Reactive<Bool>(value: false)
@@ -84,4 +95,18 @@ class MatchDetailViewModel: MatchDetailViewModelDelegate {
         }
     }
     
+    func getHeaderTitle(section: Int) -> String? {
+        switch displayPlayers {
+        case .teamHome:
+            return getTeamHomeName
+        case .teamAway:
+            return getTeamAwayName
+        case .allPlayers:
+            if section == 0 {
+                return getTeamHomeName
+            } else {
+                return getTeamAwayName
+            }
+        }
+    }
 }

@@ -23,8 +23,15 @@ class MatchDetailsTableViewCell: UITableViewCell {
     }
     
     func configureData(player: Player?) {
-        playerNameLabel.text = player?.nameFull ?? ""
-        let wicketKeeper = player?.isKeeper
-        let captain = player?.isCaptain
+        var playerName = player?.nameFull ?? ""
+        
+        if let wicketKeeper = player?.isKeeper, wicketKeeper, let captain = player?.isCaptain, captain {
+            playerName += " [C & WK]"
+        } else if let wicketKeeper = player?.isKeeper, wicketKeeper {
+            playerName += " [WK]"
+        } else if let captain = player?.isCaptain, captain {
+            playerName += " [C]"
+        }
+        playerNameLabel.text = playerName
     }
 }
