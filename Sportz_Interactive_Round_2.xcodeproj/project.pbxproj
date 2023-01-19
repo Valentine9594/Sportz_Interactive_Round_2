@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		92003AD429797F52008572B5 /* ScreenOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD329797F52008572B5 /* ScreenOneViewController.xib */; };
-		92003AD729797F87008572B5 /* FixturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD529797F87008572B5 /* FixturesTableViewCell.xib */; };
 		92003AD829797F87008572B5 /* FixturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003AD629797F87008572B5 /* FixturesTableViewCell.swift */; };
+		92003ADA29798242008572B5 /* FixturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD929798242008572B5 /* FixturesTableViewCell.xib */; };
 		92D5A4792978F4F1007EBD0D /* MatchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A4782978F4F1007EBD0D /* MatchDataService.swift */; };
 		92D5A48429790D22007EBD0D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48329790D22007EBD0D /* ReactiveListener.swift */; };
 		92D5A48D29793F12007EBD0D /* MatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48B29793F12007EBD0D /* MatchDetailViewController.swift */; };
@@ -33,8 +33,8 @@
 
 /* Begin PBXFileReference section */
 		92003AD329797F52008572B5 /* ScreenOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenOneViewController.xib; sourceTree = "<group>"; };
-		92003AD529797F87008572B5 /* FixturesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixturesTableViewCell.xib; sourceTree = "<group>"; };
 		92003AD629797F87008572B5 /* FixturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixturesTableViewCell.swift; sourceTree = "<group>"; };
+		92003AD929798242008572B5 /* FixturesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixturesTableViewCell.xib; sourceTree = "<group>"; };
 		92D5A4782978F4F1007EBD0D /* MatchDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDataService.swift; sourceTree = "<group>"; };
 		92D5A48329790D22007EBD0D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
 		92D5A48B29793F12007EBD0D /* MatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewController.swift; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				92003AD629797F87008572B5 /* FixturesTableViewCell.swift */,
-				92003AD529797F87008572B5 /* FixturesTableViewCell.xib */,
+				92003AD929798242008572B5 /* FixturesTableViewCell.xib */,
 			);
 			path = FixturesTableViewCell;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 				92EA956D29781557005237E7 /* LaunchScreen.storyboard in Resources */,
 				92EA956A29781557005237E7 /* Assets.xcassets in Resources */,
 				92D5A49929796040007EBD0D /* MatchDetailsTableViewCell.xib in Resources */,
-				92003AD729797F87008572B5 /* FixturesTableViewCell.xib in Resources */,
+				92003ADA29798242008572B5 /* FixturesTableViewCell.xib in Resources */,
 				92D5A48E29793F12007EBD0D /* MatchDetailViewController.xib in Resources */,
 				92003AD429797F52008572B5 /* ScreenOneViewController.xib in Resources */,
 			);
