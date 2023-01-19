@@ -9,9 +9,10 @@ import UIKit
 
 class MatchDetailViewController: UIViewController {
     
+    @IBOutlet weak var filterButton: UIButton!
     @IBOutlet weak var teamsTableView: UITableView!
+    
     private var viewModel: MatchDetailViewModelDelegate?
-    private var displayPlayers: DisplayPlayers = .allPlayers
 
     init(viewModel: MatchDetailViewModelDelegate?) {
         super.init(nibName: "MatchDetailViewController", bundle: nil)
@@ -42,17 +43,38 @@ class MatchDetailViewController: UIViewController {
         let matchDetailsTableviewCellNib = UINib(nibName: "MatchDetailsTableViewCell", bundle: nil)
         teamsTableView.register(matchDetailsTableviewCellNib, forCellReuseIdentifier: "MatchDetailsTableViewCell")
     }
+    
+    @IBAction func clickedFilterButton(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Select Sorting Factor", message: nil, preferredStyle: .actionSheet)
+        let allPlayersAction = UIAlertAction(title: "All Players", style: .default) { action in
+            self.viewModel?.displayPlayers = .allPlayers
+            self.teamsTableView.reloadData()
+        }
+        let teamHomeAction = UIAlertAction(title: "Team One", style: .default) { action in
+            self.viewModel?.displayPlayers = .teamHome
+            self.teamsTableView.reloadData()
+        }
+        let teamAwayAction = UIAlertAction(title: "Team Two", style: .default) { action in
+            self.viewModel?.displayPlayers = .teamAway
+            self.teamsTableView.reloadData()
+        }
+        
+        alertController.addAction(allPlayersAction)
+        alertController.addAction(teamHomeAction)
+        alertController.addAction(teamAwayAction)
+        
+        self.present(alertController, animated: true)
+    }
 
 }
 
 extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return displayPlayers.sectionCount
+        return viewModel?.displayPlayers.sectionCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let team: DisplayPlayers = section == 0 ? .teamHome : .teamAway
-        return viewModel?.numberOfRowsInSection(for: team) ?? 0
+        return viewModel?.numberOfRowsInSection(section: section) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

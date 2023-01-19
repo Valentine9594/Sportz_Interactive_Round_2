@@ -8,9 +8,10 @@
 import Foundation
 
 protocol MatchDetailViewModelDelegate {
-    var tableViewShouldReload: Reactive<Bool> { get }
+    var tableShouldReload: Reactive<Bool> { get }
+    var displayPlayers: DisplayPlayers { get set }
     
-    func numberOfRowsInSection(for players: DisplayPlayers) -> Int?
+    func numberOfRowsInSection(section: Int) -> Int?
     
     func fetchPlayer(indexPath: IndexPath) -> Player?
 }
@@ -32,10 +33,10 @@ enum DisplayPlayers: CaseIterable {
 
 class MatchDetailViewModel: MatchDetailViewModelDelegate {
     
-    
     private var model: MatchDetailResponse?
     private var teamHomeID: String = ""
     private var teamAwayID: String = ""
+    var displayPlayers: DisplayPlayers = .allPlayers
     
     private var teamHomePlayers: [Player]? {
         return model?.teams?[self.teamHomeID]?.players?.values.map({ return $0 })
@@ -45,7 +46,7 @@ class MatchDetailViewModel: MatchDetailViewModelDelegate {
         return model?.teams?[self.teamAwayID]?.players?.values.map({ return $0 })
     }
     
-    var tableViewShouldReload: Reactive<Bool> = Reactive<Bool>(value: false)
+    var tableShouldReload: Reactive<Bool> = Reactive<Bool>(value: false)
     
     init(model: MatchDetailResponse? = nil) {
         self.model = model
@@ -53,22 +54,33 @@ class MatchDetailViewModel: MatchDetailViewModelDelegate {
         self.teamAwayID = model?.matchdetail?.teamAway ?? ""
     }
     
-    func numberOfRowsInSection(for players: DisplayPlayers) -> Int? {
-        switch players {
+    func numberOfRowsInSection(section: Int) -> Int? {
+        switch displayPlayers {
         case .teamHome:
             return teamHomePlayers?.count
         case .teamAway:
             return teamAwayPlayers?.count
         case .allPlayers:
-            return nil
+            if section == 0 {
+                return teamHomePlayers?.count ?? 0
+            } else {
+                return teamAwayPlayers?.count ?? 0
+            }
         }
     }
     
     func fetchPlayer(indexPath: IndexPath) -> Player? {
-        if indexPath.section == 0 {
+        switch displayPlayers {
+        case .teamHome:
             return teamHomePlayers?[indexPath.row]
-        } else {
+        case .teamAway:
             return teamAwayPlayers?[indexPath.row]
+        case .allPlayers:
+            if indexPath.section == 0 {
+                return teamHomePlayers?[indexPath.row]
+            } else {
+                return teamAwayPlayers?[indexPath.row]
+            }
         }
     }
     

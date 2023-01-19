@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchDetailViewController" customModule="Sportz_Interactive_Round_2" customModuleProvider="target">
             <connections>
+                <outlet property="filterButton" destination="J4z-GX-LJM" id="Jue-AW-45s"/>
                 <outlet property="teamsTableView" destination="dUg-eI-FQR" id="LG0-nZ-Qv7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,6 +24,18 @@
                     <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4z-GX-LJM">
+                    <rect key="frame" x="329" y="742" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="0qR-HI-Hzg"/>
+                        <constraint firstAttribute="height" constant="60" id="aRH-Vz-OIR"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" image="sort"/>
+                    <connections>
+                        <action selector="clickedFilterButton:" destination="-1" eventType="touchUpInside" id="tqL-md-Dq9"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -30,12 +43,15 @@
                 <constraint firstItem="dUg-eI-FQR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7ck-Uw-QzQ"/>
                 <constraint firstItem="dUg-eI-FQR" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="Ek1-eK-vpJ"/>
                 <constraint firstItem="dUg-eI-FQR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XLm-Xt-xgL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="J4z-GX-LJM" secondAttribute="trailing" constant="25" id="epV-B2-h8J"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="J4z-GX-LJM" secondAttribute="bottom" constant="60" id="jK0-UN-zm0"/>
                 <constraint firstItem="dUg-eI-FQR" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="piB-w1-T3V"/>
             </constraints>
             <point key="canvasLocation" x="-1.4492753623188408" y="19.419642857142858"/>
         </view>
     </objects>
     <resources>
+        <image name="sort" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

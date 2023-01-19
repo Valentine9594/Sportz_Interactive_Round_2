@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92003AD129796C07008572B5 /* ScreenOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD029796C07008572B5 /* ScreenOneViewController.xib */; };
 		92D5A4792978F4F1007EBD0D /* MatchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A4782978F4F1007EBD0D /* MatchDataService.swift */; };
-		92D5A47F2979004A007EBD0D /* ScreenOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D5A47E2979004A007EBD0D /* ScreenOneViewController.xib */; };
 		92D5A48429790D22007EBD0D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48329790D22007EBD0D /* ReactiveListener.swift */; };
 		92D5A48729791252007EBD0D /* FixturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48529791252007EBD0D /* FixturesTableViewCell.swift */; };
 		92D5A48829791252007EBD0D /* FixturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D5A48629791252007EBD0D /* FixturesTableViewCell.xib */; };
@@ -32,8 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92003AD029796C07008572B5 /* ScreenOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenOneViewController.xib; sourceTree = "<group>"; };
 		92D5A4782978F4F1007EBD0D /* MatchDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDataService.swift; sourceTree = "<group>"; };
-		92D5A47E2979004A007EBD0D /* ScreenOneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreenOneViewController.xib; sourceTree = "<group>"; };
 		92D5A48329790D22007EBD0D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
 		92D5A48529791252007EBD0D /* FixturesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesTableViewCell.swift; sourceTree = "<group>"; };
 		92D5A48629791252007EBD0D /* FixturesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FixturesTableViewCell.xib; sourceTree = "<group>"; };
@@ -167,9 +167,9 @@
 		92EA957429781742005237E7 /* ScreenOneViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92003AD029796C07008572B5 /* ScreenOneViewController.xib */,
 				92EA95752978176C005237E7 /* ScreenOneViewController.swift */,
 				92EA95852978241A005237E7 /* ScreenOneViewModel.swift */,
-				92D5A47E2979004A007EBD0D /* ScreenOneViewController.xib */,
 			);
 			path = ScreenOneViewController;
 			sourceTree = "<group>";
@@ -272,9 +272,9 @@
 				92EA956D29781557005237E7 /* LaunchScreen.storyboard in Resources */,
 				92EA956A29781557005237E7 /* Assets.xcassets in Resources */,
 				92D5A49929796040007EBD0D /* MatchDetailsTableViewCell.xib in Resources */,
-				92D5A47F2979004A007EBD0D /* ScreenOneViewController.xib in Resources */,
 				92D5A48829791252007EBD0D /* FixturesTableViewCell.xib in Resources */,
 				92D5A48E29793F12007EBD0D /* MatchDetailViewController.xib in Resources */,
+				92003AD129796C07008572B5 /* ScreenOneViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
