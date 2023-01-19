@@ -27,7 +27,7 @@ extension APIService {
         case .matchDataOne:
             remainingPath = "nzin01312019187360.json"
         case .matchDataTwo:
-            remainingPath = "nzin01312019187360.json"
+            remainingPath = "sapk01222019186652.json"
         }
         return NetworkUtility.networkEnvironment.url + remainingPath
     }

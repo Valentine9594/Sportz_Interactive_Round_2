@@ -10,6 +10,7 @@ import Foundation
 enum NetworkError: Error {
     case somethingWentWrong
     case errorCode(statusCode: Int)
+    case failedToFetchData
 }
 
 extension NetworkError {
@@ -19,6 +20,8 @@ extension NetworkError {
             return "Something Went Wrong!"
         case .errorCode(let statusCode):
             return "Failed Operation with Status Code: \(statusCode)."
+        case .failedToFetchData:
+            return "Failed to fetch All Data, Please try again..."
         }
     }
 }

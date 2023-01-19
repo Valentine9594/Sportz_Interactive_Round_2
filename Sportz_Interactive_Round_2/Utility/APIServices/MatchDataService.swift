@@ -11,8 +11,9 @@ class MatchDataService {
     
     private init() {}
     static let shared = MatchDataService()
+    
     typealias MatchDetailsReceive = (Result<MatchDetailResponse, Error>)->()
-    typealias AllMatchDetailsReceived = ([MatchDetailResponse])->()
+    typealias AllMatchDetailsReceived = ([MatchDetailResponse], Error?)->()
     
     func fetchMatchDataOneAPI(completion: @escaping(MatchDetailsReceive)) {
         APIManager.shared.performRequest(apiService: .matchDataOne(params: nil)) { result in
@@ -25,7 +26,7 @@ class MatchDataService {
                 } else {
                     completion(.failure(NetworkError.somethingWentWrong))
                 }
-            case .failure(let error):
+            case .failure(_):
                 completion(.failure(NetworkError.somethingWentWrong))
             }
         }
@@ -42,7 +43,7 @@ class MatchDataService {
                 } else {
                     completion(.failure(NetworkError.somethingWentWrong))
                 }
-            case .failure(let error):
+            case .failure(_):
                 completion(.failure(NetworkError.somethingWentWrong))
             }
         }
@@ -50,6 +51,7 @@ class MatchDataService {
     
     func fetchAllMatchData(completion: @escaping(AllMatchDetailsReceived)) {
         var matchDetails = [MatchDetailResponse]()
+        var currentError: NetworkError? = nil
         let dispatchGroup = DispatchGroup()
         
         dispatchGroup.enter()
@@ -57,8 +59,8 @@ class MatchDataService {
             switch result {
             case .success(let value):
                 matchDetails.append(value)
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+            case .failure(_):
+                currentError = NetworkError.failedToFetchData
             }
             dispatchGroup.leave()
         }
@@ -69,14 +71,14 @@ class MatchDataService {
             switch result {
             case .success(let value):
                 matchDetails.append(value)
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+            case .failure(_):
+                currentError = NetworkError.failedToFetchData
             }
             dispatchGroup.leave()
         }
         
         dispatchGroup.notify(queue: .main) {
-            completion(matchDetails)
+            completion(matchDetails, currentError)
         }
         
         
