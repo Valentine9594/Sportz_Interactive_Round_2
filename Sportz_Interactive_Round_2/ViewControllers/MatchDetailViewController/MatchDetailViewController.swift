@@ -15,7 +15,7 @@ class MatchDetailViewController: UIViewController {
     private var viewModel: MatchDetailViewModelDelegate?
 
     init(viewModel: MatchDetailViewModelDelegate?) {
-        super.init(nibName: "MatchDetailViewController", bundle: nil)
+        super.init(nibName: ViewControllerConstants.matchDetailViewController, bundle: nil)
         self.viewModel = viewModel
     }
     
@@ -30,6 +30,8 @@ class MatchDetailViewController: UIViewController {
     }
 
     private func setupUI() {
+        title = TitleConstants.matchDetails
+        
         filterButton.layer.cornerRadius = filterButton.frame.size.width / 2
         filterButton.layer.borderColor = UIColor.black.cgColor
         filterButton.layer.borderWidth = 1
@@ -42,13 +44,13 @@ class MatchDetailViewController: UIViewController {
         teamsTableView.rowHeight = UITableView.automaticDimension
         teamsTableView.allowsMultipleSelection = false
         
-        let matchDetailsTableviewCellNib = UINib(nibName: "MatchDetailsTableViewCell", bundle: nil)
-        teamsTableView.register(matchDetailsTableviewCellNib, forCellReuseIdentifier: "MatchDetailsTableViewCell")
+        let matchDetailsTableviewCellNib = UINib(nibName: TableViewCellConstants.matchDetailsTableViewCell, bundle: nil)
+        teamsTableView.register(matchDetailsTableviewCellNib, forCellReuseIdentifier: TableViewCellConstants.matchDetailsTableViewCell)
     }
     
     @IBAction func clickedFilterButton(_ sender: UIButton) {
-        let alertController = UIAlertController(title: "Select Sorting Factor", message: nil, preferredStyle: .actionSheet)
-        let allPlayersAction = UIAlertAction(title: "All Players", style: .default) { action in
+        let alertController = UIAlertController(title: TitleConstants.selectSortingFactor, message: nil, preferredStyle: .actionSheet)
+        let allPlayersAction = UIAlertAction(title: TitleConstants.allPlayers, style: .default) { action in
             self.viewModel?.displayPlayers = .allPlayers
             self.teamsTableView.reloadData()
         }
@@ -60,7 +62,7 @@ class MatchDetailViewController: UIViewController {
             self.viewModel?.displayPlayers = .teamAway
             self.teamsTableView.reloadData()
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancelAction = UIAlertAction(title: TitleConstants.cancel, style: .cancel)
         alertController.addAction(allPlayersAction)
         alertController.addAction(teamHomeAction)
         alertController.addAction(teamAwayAction)
@@ -80,7 +82,7 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MatchDetailsTableViewCell", for: indexPath) as? MatchDetailsTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellConstants.matchDetailsTableViewCell, for: indexPath) as? MatchDetailsTableViewCell else { return UITableViewCell() }
         let player = viewModel?.fetchPlayer(indexPath: indexPath)
         cell.configureData(player: player)
         return cell
@@ -96,10 +98,10 @@ extension MatchDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     private func getPlayerMatchStylesAlert(player: Player?) {
-        var message = "Battle Style: \(player?.batting?.style?.rawValue ?? "N/A")\n"
-        message += "Bowling Style: \(player?.bowling?.style ?? "N/A")"
-        let alertController = UIAlertController(title: "\(player?.nameFull ?? "")", message: message, preferredStyle: .alert)
-        let okayAction = UIAlertAction(title: "OK", style: .default)
+        var message = TitleConstants.battingStyle + (player?.batting?.style?.rawValue ?? TitleConstants.na) + TitleConstants.newLine
+        message += TitleConstants.bowlingStyle + (player?.bowling?.style ?? TitleConstants.na)
+        let alertController = UIAlertController(title: player?.nameFull.orEmpty(), message: message, preferredStyle: .alert)
+        let okayAction = UIAlertAction(title: TitleConstants.ok, style: .default)
         alertController.addAction(okayAction)
         self.present(alertController, animated: true)
     }

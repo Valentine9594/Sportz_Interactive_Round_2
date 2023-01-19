@@ -10,13 +10,16 @@
 		92003AD429797F52008572B5 /* ScreenOneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD329797F52008572B5 /* ScreenOneViewController.xib */; };
 		92003AD829797F87008572B5 /* FixturesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003AD629797F87008572B5 /* FixturesTableViewCell.swift */; };
 		92003ADA29798242008572B5 /* FixturesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92003AD929798242008572B5 /* FixturesTableViewCell.xib */; };
+		92003ADD29798839008572B5 /* TitleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003ADC29798839008572B5 /* TitleConstants.swift */; };
+		92003ADF29798901008572B5 /* TableViewCellConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003ADE29798901008572B5 /* TableViewCellConstants.swift */; };
+		92003AE1297989F7008572B5 /* ViewControllerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003AE0297989F7008572B5 /* ViewControllerConstants.swift */; };
+		92003AE329798C58008572B5 /* Optional+String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92003AE229798C58008572B5 /* Optional+String+Extensions.swift */; };
 		92D5A4792978F4F1007EBD0D /* MatchDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A4782978F4F1007EBD0D /* MatchDataService.swift */; };
 		92D5A48429790D22007EBD0D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48329790D22007EBD0D /* ReactiveListener.swift */; };
 		92D5A48D29793F12007EBD0D /* MatchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48B29793F12007EBD0D /* MatchDetailViewController.swift */; };
 		92D5A48E29793F12007EBD0D /* MatchDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D5A48C29793F12007EBD0D /* MatchDetailViewController.xib */; };
 		92D5A49029793FED007EBD0D /* MatchDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A48F29793FED007EBD0D /* MatchDetailViewModel.swift */; };
 		92D5A49329794DE8007EBD0D /* MatchDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A49129794DE2007EBD0D /* MatchDetailResponse.swift */; };
-		92D5A49429794DEA007EBD0D /* CommonModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A49229794DE4007EBD0D /* CommonModels.swift */; };
 		92D5A49829796040007EBD0D /* MatchDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D5A49629796040007EBD0D /* MatchDetailsTableViewCell.swift */; };
 		92D5A49929796040007EBD0D /* MatchDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D5A49729796040007EBD0D /* MatchDetailsTableViewCell.xib */; };
 		92EA956129781553005237E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EA956029781553005237E7 /* AppDelegate.swift */; };
@@ -35,13 +38,16 @@
 		92003AD329797F52008572B5 /* ScreenOneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenOneViewController.xib; sourceTree = "<group>"; };
 		92003AD629797F87008572B5 /* FixturesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FixturesTableViewCell.swift; sourceTree = "<group>"; };
 		92003AD929798242008572B5 /* FixturesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FixturesTableViewCell.xib; sourceTree = "<group>"; };
+		92003ADC29798839008572B5 /* TitleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleConstants.swift; sourceTree = "<group>"; };
+		92003ADE29798901008572B5 /* TableViewCellConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellConstants.swift; sourceTree = "<group>"; };
+		92003AE0297989F7008572B5 /* ViewControllerConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerConstants.swift; sourceTree = "<group>"; };
+		92003AE229798C58008572B5 /* Optional+String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+String+Extensions.swift"; sourceTree = "<group>"; };
 		92D5A4782978F4F1007EBD0D /* MatchDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDataService.swift; sourceTree = "<group>"; };
 		92D5A48329790D22007EBD0D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
 		92D5A48B29793F12007EBD0D /* MatchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewController.swift; sourceTree = "<group>"; };
 		92D5A48C29793F12007EBD0D /* MatchDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailViewController.xib; sourceTree = "<group>"; };
 		92D5A48F29793FED007EBD0D /* MatchDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailViewModel.swift; sourceTree = "<group>"; };
 		92D5A49129794DE2007EBD0D /* MatchDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailResponse.swift; sourceTree = "<group>"; };
-		92D5A49229794DE4007EBD0D /* CommonModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModels.swift; sourceTree = "<group>"; };
 		92D5A49629796040007EBD0D /* MatchDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		92D5A49729796040007EBD0D /* MatchDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MatchDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		92EA955D29781553005237E7 /* Sportz_Interactive_Round_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sportz_Interactive_Round_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +82,16 @@
 				92EA95852978241A005237E7 /* ScreenOneViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		92003ADB2979881F008572B5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				92003ADC29798839008572B5 /* TitleConstants.swift */,
+				92003ADE29798901008572B5 /* TableViewCellConstants.swift */,
+				92003AE0297989F7008572B5 /* ViewControllerConstants.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 		92D5A4772978F4D3007EBD0D /* APIServices */ = {
@@ -185,6 +201,7 @@
 		92EA9579297818D4005237E7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				92003ADB2979881F008572B5 /* Constants */,
 				92D5A4772978F4D3007EBD0D /* APIServices */,
 				92EA958229782227005237E7 /* API */,
 				92EA958329782298005237E7 /* NetworkError.swift */,
@@ -196,7 +213,6 @@
 		92EA957A297818DC005237E7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				92D5A49229794DE4007EBD0D /* CommonModels.swift */,
 				92D5A49129794DE2007EBD0D /* MatchDetailResponse.swift */,
 			);
 			path = Models;
@@ -205,6 +221,7 @@
 		92EA957B297818F1005237E7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				92003AE229798C58008572B5 /* Optional+String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -295,15 +312,18 @@
 			files = (
 				92D5A49829796040007EBD0D /* MatchDetailsTableViewCell.swift in Sources */,
 				92EA957F29781916005237E7 /* APIManager.swift in Sources */,
+				92003ADD29798839008572B5 /* TitleConstants.swift in Sources */,
 				92EA95862978241A005237E7 /* ScreenOneViewModel.swift in Sources */,
 				92003AD829797F87008572B5 /* FixturesTableViewCell.swift in Sources */,
 				92EA958429782298005237E7 /* NetworkError.swift in Sources */,
+				92003ADF29798901008572B5 /* TableViewCellConstants.swift in Sources */,
 				92D5A49329794DE8007EBD0D /* MatchDetailResponse.swift in Sources */,
 				92D5A49029793FED007EBD0D /* MatchDetailViewModel.swift in Sources */,
 				92EA958129781B60005237E7 /* APIUtilities.swift in Sources */,
 				92D5A4792978F4F1007EBD0D /* MatchDataService.swift in Sources */,
 				92EA956129781553005237E7 /* AppDelegate.swift in Sources */,
-				92D5A49429794DEA007EBD0D /* CommonModels.swift in Sources */,
+				92003AE1297989F7008572B5 /* ViewControllerConstants.swift in Sources */,
+				92003AE329798C58008572B5 /* Optional+String+Extensions.swift in Sources */,
 				92D5A48429790D22007EBD0D /* ReactiveListener.swift in Sources */,
 				92EA95772978176C005237E7 /* ScreenOneViewController.swift in Sources */,
 				92EA956329781553005237E7 /* SceneDelegate.swift in Sources */,

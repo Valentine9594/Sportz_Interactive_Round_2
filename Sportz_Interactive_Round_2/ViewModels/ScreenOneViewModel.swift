@@ -22,10 +22,8 @@ class ScreenOneViewModel: ScreenOneViewModelDelegate {
     func fetchMatchData() {
         MatchDataService.shared.fetchAllMatchData { matchDetails, error in
             self.fixtures = matchDetails
-            print(error?.localizedDescription ?? "No Error")
             self.tableViewShouldReload.accept(true)
         }
-        
     }
     
     func getTotalNumberOfFixtures() -> Int {

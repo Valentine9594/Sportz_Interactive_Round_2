@@ -14,7 +14,7 @@ class ScreenOneViewController: UIViewController {
     private var viewModel: ScreenOneViewModelDelegate?
     
     init(viewModel: ScreenOneViewModelDelegate?) {
-        super.init(nibName: "ScreenOneViewController", bundle: nil)
+        super.init(nibName: ViewControllerConstants.screenOneViewController, bundle: nil)
         self.viewModel = viewModel
     }
     
@@ -27,8 +27,7 @@ class ScreenOneViewController: UIViewController {
         setupUI()
         setupTableView()
     }
-
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupObservers()
@@ -36,9 +35,9 @@ class ScreenOneViewController: UIViewController {
     }
     
     private func setupUI() {
-        navigationController?.title = "Fixtures"
+        title = TitleConstants.fixtures
     }
-
+    
     private func fetchAllMatchDetails() {
         viewModel?.fetchMatchData()
     }
@@ -56,15 +55,12 @@ class ScreenOneViewController: UIViewController {
     private func setupTableView() {
         fixturesTableview.delegate = self
         fixturesTableview.dataSource = self
-        
         fixturesTableview.allowsMultipleSelection = false
-        
         fixturesTableview.rowHeight = UITableView.automaticDimension
         
-        let fixturesNib = UINib(nibName: "FixturesTableViewCell", bundle: nil)
-        fixturesTableview.register(fixturesNib, forCellReuseIdentifier: "FixturesTableViewCell")
+        let fixturesNib = UINib(nibName: TableViewCellConstants.fixturesTableViewCell, bundle: nil)
+        fixturesTableview.register(fixturesNib, forCellReuseIdentifier: TableViewCellConstants.fixturesTableViewCell)
     }
-
 }
 
 extension ScreenOneViewController: UITableViewDelegate, UITableViewDataSource {
@@ -73,7 +69,7 @@ extension ScreenOneViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FixturesTableViewCell") as? FixturesTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellConstants.fixturesTableViewCell) as? FixturesTableViewCell else { return UITableViewCell() }
         let currentFixture = viewModel?.fetchMatchDetailAt(index: indexPath.row)
         cell.setupFixtureTableViewCell(matchDetailResponse: currentFixture)
         return cell
